@@ -12,7 +12,7 @@ def update_index(id: str, value: int):
 def get_index(id: str) -> int:
     index = hass.states.get(id)
 
-    if index == None:
+    if index is None:
         update_index(id, 0)
         return 0
 
@@ -22,7 +22,7 @@ def get_index(id: str) -> int:
 def activate_scene(scenes: list[str], index: int):
     if index >= len(scenes) or index < 0:
         return
-    
+
     hass.services.call('scene', 'turn_on', {'entity_id': scenes[index]})
 
 
