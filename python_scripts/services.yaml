@@ -1,0 +1,23 @@
+light_szene_switch:
+  name: Light scene switch
+  description: Switch between multiple scenes by using last, next and current to manage the scenes
+  fields:
+    id:
+      name: Unique Identifier
+      description: The unique identifier for the light/room/group that you want to control
+
+    scene:
+      description: Select multiple scenes to manage.
+      selector:
+        entity:
+          domain: scene
+          multiple: true
+
+    mode:
+      description: Selector for the execution mode. Can be 'current', 'last', or 'next'. Chooses which scene relative to the previous is activated.
+      selector:
+        select:
+          options:
+            - "current"
+            - "last"
+            - "next"
